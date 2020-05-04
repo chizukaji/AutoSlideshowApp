@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
                 if (i < image_kazu) {
                     i += 1
                 } else {
-                    i = image_kazu
+                    i = 0
                 }
                 imageView.setImageURI(image_uri[i])
             }
@@ -95,17 +95,17 @@ class MainActivity : AppCompatActivity() {
                 if (i >= 1) {
                     i -= 1
                 } else {
-                    i = 0
+                    i = image_kazu
                 }
                 imageView.setImageURI(image_uri[i])
             }
         }
 
         play_stop_button.setOnClickListener{
-
             if (renzoku == 0) {
 
                 renzoku = 1
+                play_stop_button.text ="停止"
 
                 mTimer = Timer()
 
@@ -122,6 +122,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }, 2000, 2000)
             }else{
+                play_stop_button.text ="再生"
                 mTimer!!.cancel()
                 renzoku = 0
 
